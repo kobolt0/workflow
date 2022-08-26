@@ -17,12 +17,11 @@ public class MsgListener {
     @JmsListener(destination = "extrc")
     public void receiveMessage(String msg) {
 
-        System.out.println(msg);
 
         Gson gson = new Gson();
         Map<String, Object> jsonMap = gson.fromJson(msg, Map.class);
-        System.out.println(jsonMap);
-        log.debug("##@# start process {}", msg);
+        log.info("##@# start process {}", msg);
+
     }
 
 }

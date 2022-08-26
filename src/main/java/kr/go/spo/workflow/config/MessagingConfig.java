@@ -1,4 +1,4 @@
-package kr.go.spo.workflow;
+package kr.go.spo.workflow.config;
 
 import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
 import org.springframework.context.annotation.Bean;

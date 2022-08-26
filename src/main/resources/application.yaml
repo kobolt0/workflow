@@ -11,3 +11,10 @@ camunda.bpm.admin-user:
   id: demo
   password: demo
 
+logging:
+  file:
+    path: /log
+    max-size: 500MB
+    max-history: 10
+#  level:
+#    root: debug
