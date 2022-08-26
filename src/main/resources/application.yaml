@@ -18,3 +18,11 @@ logging:
     max-history: 10
 #  level:
 #    root: debug
+
+workflow:
+  extrc:
+    # rest api 서버 URL
+    serverIp: http://localhost:8070
+
+#server.port: 8070
+

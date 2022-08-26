@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0xbt7wk" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
+  <bpmn:process id="extrc" name="extrc" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="시작">
+      <bpmn:outgoing>Flow_1x2ed7c</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="Activity_st01" name="암호 탐지" camunda:asyncBefore="true" camunda:asyncAfter="true" camunda:class="kr.go.spo.workflow.worker.SimpleWorker">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="processApiUri">/dummy</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1x2ed7c</bpmn:incoming>
+      <bpmn:outgoing>Flow_0jbio25</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_1uicdvx" name="종료">
+      <bpmn:incoming>Flow_1l4q83x</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1x2ed7c" sourceRef="StartEvent_1" targetRef="Activity_st01" />
+    <bpmn:serviceTask id="Activity_st03" name="추출" camunda:asyncBefore="true" camunda:class="kr.go.spo.workflow.worker.SimpleWorker">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="processApiUri">/dummy</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0jbio25</bpmn:incoming>
+      <bpmn:outgoing>Flow_1l4q83x</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0jbio25" sourceRef="Activity_st01" targetRef="Activity_st03" />
+    <bpmn:sequenceFlow id="Flow_1l4q83x" sourceRef="Activity_st03" targetRef="Event_1uicdvx" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="extrc">
+      <bpmndi:BPMNEdge id="Flow_1l4q83x_di" bpmnElement="Flow_1l4q83x">
+        <di:waypoint x="470" y="167" />
+        <di:waypoint x="470" y="141" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0jbio25_di" bpmnElement="Flow_0jbio25">
+        <di:waypoint x="260" y="207" />
+        <di:waypoint x="420" y="207" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1x2ed7c_di" bpmnElement="Flow_1x2ed7c">
+        <di:waypoint x="210" y="138" />
+        <di:waypoint x="210" y="167" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="192" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="199" y="78" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1u05p58_di" bpmnElement="Activity_st01">
+        <dc:Bounds x="160" y="167" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1uicdvx_di" bpmnElement="Event_1uicdvx">
+        <dc:Bounds x="452" y="105" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="459" y="81" width="22" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0yujixs" bpmnElement="Activity_st03">
+        <dc:Bounds x="420" y="167" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
