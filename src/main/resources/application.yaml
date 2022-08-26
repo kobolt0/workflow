@@ -11,13 +11,27 @@ camunda.bpm.admin-user:
   id: demo
   password: demo
 
-logging:
-  file:
-    path: /log
-    max-size: 500MB
-    max-history: 10
+
+#logging:
+#  file:
+#    path: /log
+#    max-size: 500MB
+#    max-history: 10
 #  level:
 #    root: debug
+
+logging:
+  file:
+    name: /logs/abc.log
+    max-history: 30
+#    max-size: 1MB
+  pattern:
+    file: "[%d{HH:mm:ss.SSS}][%-5level][%logger.%method:line%line] - %msg%n"
+    rolling-file-name: ${LOG_FILE}.%d{yyyy-MM-dd}-%i.log
+  level:
+    org:
+      springframework: DEBUG
+
 
 workflow:
   extrc:
