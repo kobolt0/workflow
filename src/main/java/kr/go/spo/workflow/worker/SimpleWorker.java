@@ -1,11 +1,9 @@
 package kr.go.spo.workflow.worker;
 
-import camundajar.impl.com.google.gson.Gson;
 import kr.go.spo.workflow.common.HttpResVo;
 import kr.go.spo.workflow.common.HttpUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.camunda.bpm.engine.variable.value.TypedValue;
@@ -36,7 +34,7 @@ public class SimpleWorker  implements JavaDelegate {
     @Override
     public void execute(DelegateExecution execution) {
         log.debug("#@## Start excuteMain ################################");
-        log.debug("#@## taskNm: " + execution.getBpmnModelElementInstance().getName());
+        log.info ("#@## Start task worker : " + execution.getBpmnModelElementInstance().getName());
 
         // 입력파라메터 Map 설정
         Map<String, String> inParamMap = new HashMap<>();
@@ -59,8 +57,8 @@ public class SimpleWorker  implements JavaDelegate {
         HttpResVo resVO = HttpUtils.callHttpGet(callUrl);  //호출
         log.debug("#@## HttpUtils.callHttpGet END getResponsCode:[{}]  getResponsCode[{}]  getContent[{}]", resVO.getResponsCode(), resVO.getResponsCode(), resVO.getContent());
 
-        log.info("REST API Response. {}", resVO.toString());
-        log.info("REST API Response getContent. {}", resVO.getContent());
+        log.info("#@## REST API Response. {}", resVO.toString());
+        log.info("#@## REST API Response getContent. {}", resVO.getContent());
 
     }
 

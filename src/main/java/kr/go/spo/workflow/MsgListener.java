@@ -29,18 +29,18 @@ public class MsgListener {
     public void receiveMessage(@Payload String strMsg,
                                @Headers MessageHeaders headers,
                                Message message, Session session) {
-        log.info("- - - - - - - - - - - - - - - - - - - - - - - -");
-        log.info("######          Message Order           #####");
-        log.info("- - - - - - - - - - - - - - - - - - - - - - - -");
-        log.info("received <" + strMsg + ">");
+        log.debug("- - - - - - - - - - - - - - - - - - - - - - - -");
+        log.debug("######          Message Order           #####");
+        log.debug("- - - - - - - - - - - - - - - - - - - - - - - -");
+        log.debug("received <" + strMsg + ">");
 
-        log.info("- - - - - - - - - - - - - - - - - - - - - - - -");
-        log.info("######          Message Details           #####");
-        log.info("- - - - - - - - - - - - - - - - - - - - - - - -");
-        log.info("headers: " + headers);
-        log.info("message: " + message);
-        log.info("session: " + session);
-        log.info("- - - - - - - - - - - - - - - - - - - - - - - -");
+        log.debug("- - - - - - - - - - - - - - - - - - - - - - - -");
+        log.debug("######          Message Details           #####");
+        log.debug("- - - - - - - - - - - - - - - - - - - - - - - -");
+        log.debug("headers: " + headers);
+        log.debug("message: " + message);
+        log.debug("session: " + session);
+        log.debug("- - - - - - - - - - - - - - - - - - - - - - - -");
 
 
 
